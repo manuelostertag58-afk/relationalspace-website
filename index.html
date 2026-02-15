@@ -1,0 +1,1604 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Relational Space · Köln</title>
+    <meta name="description" content="Primal Play & Authentic Relating in Köln. Räume, um im Körper anzukommen – und in echter Verbindung.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --color-bg: #f5f3ef;
+            --color-bg-warm: #ebe7e0;
+            --color-bg-dark: #1a1918;
+            --color-text: #2c2825;
+            --color-text-light: #5c5650;
+            --color-text-inverse: #f5f3ef;
+            --color-accent: #8b7355;
+            --color-accent-light: #a89070;
+            --color-border: #d4cec4;
+            
+            --font-display: 'Cormorant Garamond', Georgia, serif;
+            --font-body: 'Instrument Sans', -apple-system, sans-serif;
+            
+            --space-xs: 0.5rem;
+            --space-sm: 1rem;
+            --space-md: 2rem;
+            --space-lg: 4rem;
+            --space-xl: 8rem;
+            --space-2xl: 12rem;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-display);
+            font-weight: 400;
+            line-height: 1.2;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 300;
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 300;
+            margin-bottom: var(--space-md);
+        }
+        
+        h3 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            margin-bottom: var(--space-sm);
+        }
+        
+        p {
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-light);
+        }
+        
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--color-text);
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+        
+        .container--narrow {
+            max-width: 800px;
+        }
+        
+        section {
+            padding: var(--space-xl) 0;
+        }
+        
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: var(--space-sm) 0;
+            background: rgba(245, 243, 239, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .nav.scrolled {
+            border-bottom-color: var(--color-border);
+        }
+        
+        .nav__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav__logo {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+        }
+        
+        .nav__logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .nav__logo-text {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--color-text);
+            letter-spacing: 0.02em;
+        }
+        
+        .nav__links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+        
+        .nav__links a {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
+            letter-spacing: 0.02em;
+            position: relative;
+        }
+        
+        .nav__links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav__links a:hover {
+            color: var(--color-text);
+        }
+        
+        .nav__links a:hover::after {
+            width: 100%;
+        }
+        
+        .nav__lang {
+            font-size: 0.85rem;
+            color: var(--color-text-light);
+            padding: 0.4rem 0.8rem;
+            border: 1px solid var(--color-border);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav__lang:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+        }
+        
+        .nav__menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: var(--space-xs);
+        }
+        
+        .nav__menu-btn span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--color-text);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+        
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(26, 25, 24, 0.5) 0%,
+                rgba(26, 25, 24, 0.6) 50%,
+                rgba(26, 25, 24, 0.7) 100%
+            );
+            z-index: 1;
+        }
+        
+        .hero__bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: min(70vw, 500px);
+            height: min(70vw, 500px);
+            opacity: 0.1;
+            pointer-events: none;
+            animation: gentle-rotate 120s linear infinite;
+            z-index: 2;
+        }
+        
+        @keyframes gentle-rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .hero__content {
+            position: relative;
+            z-index: 3;
+            max-width: 900px;
+            padding: 0 var(--space-md);
+        }
+        
+        .hero__subtitle {
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-accent-light);
+            margin-bottom: var(--space-md);
+            animation: fadeUp 1s ease 0.2s both;
+        }
+        
+        .hero h1 {
+            margin-bottom: var(--space-md);
+            animation: fadeUp 1s ease 0.4s both;
+            color: var(--color-text-inverse);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero__tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-style: italic;
+            color: rgba(245, 243, 239, 0.9);
+            margin-bottom: var(--space-lg);
+            animation: fadeUp 1s ease 0.6s both;
+            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero__cta {
+            animation: fadeUp 1s ease 0.8s both;
+        }
+        
+        .hero .btn {
+            border-color: var(--color-text-inverse);
+            color: var(--color-text-inverse);
+        }
+        
+        .hero .btn:hover {
+            background: var(--color-text-inverse);
+            color: var(--color-bg-dark);
+        }
+        
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            padding: 1rem 2.5rem;
+            border: 1px solid var(--color-text);
+            color: var(--color-text);
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--color-text);
+            color: var(--color-bg);
+        }
+        
+        .btn--primary {
+            background: var(--color-text);
+            color: var(--color-bg);
+        }
+        
+        .btn--primary:hover {
+            background: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-bg);
+        }
+        
+        /* Intro Section */
+        .intro {
+            background: var(--color-bg-warm);
+        }
+        
+        .intro .container {
+            max-width: 1400px;
+        }
+        
+        .intro__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+        }
+        
+        .intro__image {
+            position: relative;
+        }
+        
+        .intro__image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+        
+        .intro__image-placeholder {
+            aspect-ratio: 4/3;
+            background: linear-gradient(135deg, var(--color-border) 0%, var(--color-bg) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+        
+        .intro__text h2 {
+            color: var(--color-text);
+        }
+        
+        .intro__text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+        
+        /* Primal Play Section */
+        .primal-play {
+            background: var(--color-bg-dark);
+            color: var(--color-text-inverse);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .primal-play__bg {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translateY(-50%);
+            width: 50%;
+            max-width: 600px;
+            opacity: 0.08;
+        }
+        
+        .primal-play .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .primal-play h2 {
+            color: var(--color-text-inverse);
+        }
+        
+        .primal-play p {
+            color: rgba(245, 243, 239, 0.8);
+        }
+        
+        .primal-play__content {
+            max-width: 700px;
+        }
+        
+        .primal-play__quote {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-style: italic;
+            color: var(--color-text-inverse);
+            margin: var(--space-lg) 0;
+            padding-left: var(--space-md);
+            border-left: 2px solid var(--color-accent);
+        }
+        
+        .primal-play__list {
+            list-style: none;
+            margin: var(--space-md) 0;
+        }
+        
+        .primal-play__list li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid rgba(245, 243, 239, 0.1);
+            color: rgba(245, 243, 239, 0.9);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+        
+        .primal-play__list li::before {
+            content: '○';
+            color: var(--color-accent-light);
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+        }
+        
+        /* What to Expect */
+        .expect {
+            background: var(--color-bg);
+        }
+        
+        .expect__intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .expect__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+        }
+        
+        .expect__card {
+            padding: var(--space-md);
+            background: var(--color-bg-warm);
+            transition: transform 0.3s ease;
+        }
+        
+        .expect__card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .expect__card h3 {
+            font-size: 1.3rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        /* For You Section */
+        .for-you {
+            position: relative;
+            overflow: hidden;
+            padding: 0;
+            background: var(--color-bg-dark);
+        }
+        
+        .for-you__inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .for-you__image {
+            position: relative;
+            overflow: hidden;
+            line-height: 0;
+        }
+        
+        .for-you__image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+        
+        .for-you__content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--space-md) var(--space-lg);
+            background: var(--color-bg-warm);
+        }
+        
+        .for-you__content h2 {
+            margin-bottom: var(--space-md);
+        }
+        
+        .for-you__content > p {
+            font-size: 1.05rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .for-you__list {
+            list-style: none;
+            margin: var(--space-md) 0;
+        }
+        
+        .for-you__list li {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--color-border);
+            color: var(--color-text);
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+        }
+        
+        .for-you__list li:last-child {
+            border-bottom: none;
+        }
+        
+        .for-you__list li::before {
+            content: '◇';
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            flex-shrink: 0;
+        }
+        
+        .expect__card p {
+            font-size: 0.95rem;
+        }
+        
+        /* FAQ Section */
+        .faq {
+            background: var(--color-bg);
+        }
+        
+        .faq__intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .faq__list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq__item {
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .faq__question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: var(--space-md) 0;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--color-text);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--space-md);
+            transition: color 0.3s ease;
+        }
+        
+        .faq__question:hover {
+            color: var(--color-accent);
+        }
+        
+        .faq__icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+        
+        .faq__item.active .faq__icon {
+            transform: rotate(45deg);
+        }
+        
+        .faq__answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+        
+        .faq__item.active .faq__answer {
+            max-height: 500px;
+            padding-bottom: var(--space-md);
+        }
+        
+        .faq__answer p {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        
+        /* Team Section */
+        .team {
+            background: var(--color-bg-warm);
+        }
+        
+        .team__intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .team__intro p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .team__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .team__member {
+            text-align: center;
+        }
+        
+        .team__photo {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto var(--space-md);
+            border-radius: 50%;
+            overflow: hidden;
+            background: var(--color-border);
+        }
+        
+        .team__photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team__member h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .team__member > p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 400px;
+            margin: 0 auto var(--space-sm);
+        }
+        
+        .team__more {
+            margin-top: var(--space-sm);
+        }
+        
+        .team__more-btn {
+            background: none;
+            border: none;
+            color: var(--color-accent);
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .team__more-btn:hover {
+            text-decoration: underline;
+        }
+        
+        .team__more-btn .icon {
+            transition: transform 0.3s ease;
+        }
+        
+        .team__more.active .team__more-btn .icon {
+            transform: rotate(180deg);
+        }
+        
+        .team__more-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+        
+        .team__more.active .team__more-content {
+            max-height: 500px;
+        }
+        
+        .team__more-content p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+            max-width: 400px;
+            margin: var(--space-sm) auto;
+            text-align: center;
+        }
+        
+        .team__photo-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-text-light);
+            font-size: 0.85rem;
+        }
+        
+        /* Events Section */
+        .events {
+            background: var(--color-bg);
+        }
+        
+        .events__intro {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .events__card {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: var(--space-lg);
+            background: var(--color-bg-warm);
+            text-align: center;
+        }
+        
+        .events__card h3 {
+            font-size: 1.8rem;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .events__date {
+            font-size: 0.9rem;
+            color: var(--color-accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: var(--space-md);
+        }
+        
+        .events__card p {
+            margin-bottom: var(--space-md);
+        }
+        
+        .events__note {
+            font-style: italic;
+            color: var(--color-text-light);
+            padding: var(--space-md);
+            background: var(--color-bg);
+            margin-top: var(--space-md);
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: var(--color-bg-dark);
+            color: var(--color-text-inverse);
+            text-align: center;
+        }
+        
+        .contact h2 {
+            color: var(--color-text-inverse);
+        }
+        
+        .contact p {
+            color: rgba(245, 243, 239, 0.8);
+            max-width: 500px;
+            margin: 0 auto var(--space-md);
+        }
+        
+        .contact__email {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            color: var(--color-text-inverse);
+            display: inline-block;
+            margin-bottom: var(--space-md);
+            position: relative;
+        }
+        
+        .contact__email::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--color-accent);
+        }
+        
+        .contact__social {
+            margin-top: var(--space-lg);
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+        }
+        
+        .contact__social a {
+            color: rgba(245, 243, 239, 0.6);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+        }
+        
+        .contact__social a:hover {
+            color: var(--color-text-inverse);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--color-bg-dark);
+            color: rgba(245, 243, 239, 0.5);
+            padding: var(--space-md) 0;
+            border-top: 1px solid rgba(245, 243, 239, 0.1);
+        }
+        
+        .footer__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+        }
+        
+        .footer a {
+            color: rgba(245, 243, 239, 0.5);
+        }
+        
+        .footer a:hover {
+            color: var(--color-text-inverse);
+        }
+        
+        /* Photo Credits */
+        .photo-credit {
+            position: relative;
+        }
+        
+        .photo-credit__text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 8px 12px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.4;
+        }
+        
+        .photo-credit__text a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+        }
+        
+        .photo-credit__text a:hover {
+            text-decoration: underline;
+        }
+        
+        .hero__credit {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            font-size: 0.65rem;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            z-index: 4;
+        }
+        
+        .hero__credit a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+        
+        .hero__credit a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive */
+        @media (max-width: 900px) {
+            .intro__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+            
+            .intro__image {
+                order: -1;
+            }
+            
+            .for-you__inner {
+                grid-template-columns: 1fr;
+            }
+            
+            .for-you__image {
+                max-height: 350px;
+                overflow: hidden;
+            }
+            
+            .for-you__content {
+                padding: var(--space-lg) var(--space-md);
+            }
+            
+            .expect__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: var(--space-lg) 0;
+            }
+            
+            .nav__links,
+            .nav__lang {
+                display: none;
+            }
+            
+            .nav__menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                min-height: 90vh;
+            }
+            
+            .hero__tagline {
+                font-size: 1.1rem;
+                padding: 0 var(--space-sm);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .primal-play__content {
+                padding: 0 var(--space-sm);
+            }
+            
+            .primal-play__quote {
+                font-size: 1.1rem;
+                padding: var(--space-md);
+            }
+            
+            .for-you__list li {
+                font-size: 0.95rem;
+            }
+            
+            .faq__question span:first-child {
+                font-size: 1rem;
+            }
+            
+            .team__intro {
+                padding: 0 var(--space-sm);
+            }
+            
+            .team__member > p,
+            .team__more-content p {
+                max-width: 100%;
+                padding: 0 var(--space-sm);
+            }
+            
+            .footer__inner {
+                flex-direction: column;
+                gap: var(--space-sm);
+                text-align: center;
+            }
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--color-bg);
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .mobile-menu__links {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-menu__links li {
+            margin: var(--space-md) 0;
+        }
+        
+        .mobile-menu__links a {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: var(--color-text);
+        }
+        
+        .mobile-menu__close {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="container nav__inner">
+            <a href="#" class="nav__logo">
+                <img src="organic_circle_clean.png" alt="The Relational Space Logo">
+                <span class="nav__logo-text">The Relational Space</span>
+            </a>
+            <ul class="nav__links">
+                <li><a href="#about">Das Projekt</a></li>
+                <li><a href="#primal-play">Primal Play</a></li>
+                <li><a href="#team">Über uns</a></li>
+                <li><a href="#events">Workshops</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <a href="en.html" class="nav__lang">EN</a>
+            <button class="nav__menu-btn" id="menuBtn" aria-label="Menü öffnen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="menuClose">×</button>
+        <ul class="mobile-menu__links">
+            <li><a href="#about">Das Projekt</a></li>
+            <li><a href="#primal-play">Primal Play</a></li>
+            <li><a href="#team">Über uns</a></li>
+            <li><a href="#events">Workshops</a></li>
+            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="en.html" style="font-size: 1rem; color: var(--color-accent);">English Version</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <img src="organic_circle_clean_white.png" alt="" class="hero__bg">
+        <div class="hero__content">
+            <p class="hero__subtitle">Primal Play & Authentic Relating · Köln</p>
+            <h1>The Relational Space</h1>
+            <p class="hero__tagline">Räume, um im Körper anzukommen – und in echter Verbindung.</p>
+            <div class="hero__cta">
+                <a href="#primal-play" class="btn">Mehr erfahren</a>
+            </div>
+        </div>
+        <div class="hero__credit">
+            Fotografiert während des Intimacy Trainings 2025 von <a href="https://instagram.com/johannakaisjoki" target="_blank">Johanna Kaisjoki</a> | 
+            Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>
+        </div>
+    </header>
+
+    <!-- Intro Section -->
+    <section class="intro" id="about">
+        <div class="container intro__grid">
+            <div class="intro__image photo-credit">
+                <img src="connection.jpg" alt="Menschen in spielerischer, verbundener Begegnung">
+                <div class="photo-credit__text">
+                    Fotografiert während des Intimacy Trainings 2025 von <a href="https://instagram.com/johannakaisjoki" target="_blank">Johanna Kaisjoki</a> | 
+                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>: 
+                    <a href="https://instagram.com/busterradvik" target="_blank">Buster Rådvik</a> & 
+                    <a href="https://instagram.com/maramehrunissa" target="_blank">Mara Kölpin</a>
+                </div>
+            </div>
+            <div class="intro__text">
+                <h2>Räume für Verbindung</h2>
+                <p>
+                    In Begegnung mit anderen begegnen wir uns selbst. Wenn wir von Gemeinschaft getragen sind, 
+                    entsteht Sicherheit – und aus dieser Sicherheit heraus können wir wachsen. Wir erleben uns 
+                    im Spiegel der anderen, entdecken neue Facetten unseres Seins und erinnern uns daran, dass 
+                    wir gemeinsam mehr sind als allein. The Relational Space basiert auf der Überzeugung, dass 
+                    echte Verbindung kein Zustand ist, den wir herstellen müssen, sondern etwas, das entsteht, 
+                    wenn wir uns zeigen dürfen – mit allem, was gerade da ist.
+                </p>
+                <p>
+                    Hier können wir gemeinsam erforschen, was uns wirklich bewegt. Unsere Wünsche und Grenzen 
+                    finden Raum – ebenso wie tiefe, ehrliche Intimität mit uns selbst und mit anderen. Über den 
+                    Körper finden wir zurück zu Lebendigkeit, Kreativität und Neugier und lernen, der eigenen 
+                    Intuition zu folgen.
+                </p>
+                <p>
+                    In Köln schaffen wir solche Räume durch Primal Play Workshops und verkörperte Gruppenarbeit – 
+                    mit der Vision, unser Angebot stetig zu erweitern. Unser Fundament: Die Überzeugung, dass eine 
+                    andere Art des Zusammenseins nicht nur möglich ist, sondern sich zutiefst natürlich anfühlt.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Primal Play Section -->
+    <section class="primal-play" id="primal-play">
+        <img src="organic_circle_clean_white.png" alt="" class="primal-play__bg">
+        <div class="container">
+            <div class="primal-play__content">
+                <h2>Was ist Primal Play?</h2>
+                <p>
+                    Primal Play ist ein Begegnungsformat jenseits von Worten — ein Spielraum, in dem wir 
+                    wiederentdecken, wohin uns unsere Körper und Impulse ganz von selbst bewegen. 
+                    Absichtslos sinken wir ins Hier und Jetzt und entfalten diejenige Magie, 
+                    die frei wird, wenn wir uns wahrhaftig begegnen.
+                </p>
+                
+                <blockquote class="primal-play__quote">
+                    „Do you yearn to drop into deep play and wonder — free from ideas of what is expected of you, 
+                    and how you should or shouldn't behave? To be guided by the embodied intelligence within — 
+                    wild, passionate, attuned, and fully present to the subtlety of the moment?"
+                    <cite>— Buster Rådvik</cite>
+                </blockquote>
+                
+                <h3 style="margin-top: var(--space-lg); color: var(--color-text-inverse);">So funktioniert Primal Play</h3>
+                <p>
+                    Stell dir vor: Eine Matte als Spielfeld, klare Vereinbarungen, zwei Menschen, die sich ohne 
+                    Worte begegnen – für sieben Minuten. Wie werden sie sich begegnen? Was tun ihre Körper? 
+                    Spüren sie Verbindung – oder eher Distanz? Und wie zeigen sich dabei ihre Grenzen?
+                </p>
+                <p>
+                    Ab hier kann alles geschehen. Eure Begegnung kann weich und sinnlich sein, wild und intensiv, 
+                    verspielt, still, eigenwillig oder komisch. Manchmal mit viel Nähe, manchmal ohne jede Berührung – 
+                    alles ist möglich und willkommen.
+                </p>
+                <p>
+                    Es ist ein nonverbaler Raum. Die Begegnung findet über Atem, Bewegung, Laute und Berührung statt. 
+                    Klare Vereinbarungen schaffen einen Rahmen ohne Ziel oder Erwartung, in dem du ausdrücken darfst, 
+                    was gerade präsent ist. Auch wenn das bedeutet, einfach auf deiner Matte zu sitzen und „nichts" zu tun.
+                </p>
+                <p>
+                    Du entscheidest in jedem Moment selbst, ob und wie du mitmachst. Es ist ein absichtsloser, 
+                    vollständig bekleideter Raum. Du kannst jederzeit pausieren – oder als Zeuge dabei sein. 
+                    Auch das Beobachten kann heilsam sein: Wir spiegeln uns nicht nur in denen, denen wir begegnen, 
+                    sondern auch in denen, die wir bezeugen.
+                </p>
+                
+                <h3 style="margin-top: var(--space-lg); color: var(--color-text-inverse);">Ein typischer Abend</h3>
+                <p>
+                    Wir starten nicht direkt ins Play. Der Abend beginnt mit Achtsamkeits- und Konsensübungen, 
+                    um sanft anzukommen – im Raum, im Körper, in der Gruppe. Erst wenn ein Gefühl von Sicherheit 
+                    und Präsenz entstanden ist, öffnen wir den Raum für die Plays.
+                </p>
+                <p>
+                    Ein zentraler Teil des Abends ist das Sharing: Im 1:1 oder in der Gruppe teilen wir, 
+                    was die Erfahrungen in uns bewegt haben. Hier wird sichtbar, was im nonverbalen Raum 
+                    oft nur gespürt wurde. Das Sharing vertieft nicht nur das eigene Erleben, sondern schafft 
+                    auch Gemeinschaft – eine geteilte Erfahrung, die über den Abend hinaus trägt.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Can Emerge Section -->
+    <section class="for-you">
+        <div class="for-you__inner">
+            <div class="for-you__image photo-credit">
+                <img src="expect-bg.jpg" alt="Menschen in inniger, spielerischer Verbindung">
+                <div class="photo-credit__text">
+                    Fotografiert während des Intimacy Trainings 2025 von <a href="https://instagram.com/johannakaisjoki" target="_blank">Johanna Kaisjoki</a> | 
+                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>: 
+                    <a href="https://instagram.com/busterradvik" target="_blank">Buster Rådvik</a> & 
+                    <a href="https://instagram.com/maramehrunissa" target="_blank">Mara Kölpin</a>
+                </div>
+            </div>
+            <div class="for-you__content">
+                <h2>Was im Play entstehen kann</h2>
+                <ul class="for-you__list">
+                    <li>Tiefere Verbindung zu dir selbst und deinem Körper</li>
+                    <li>Mehr Klarheit über deine Grenzen und Bedürfnisse</li>
+                    <li>Erfahrungen von Lebendigkeit, Spiel und Präsenz</li>
+                    <li>Heilsame Begegnungen jenseits von Worten</li>
+                    <li>Ein Gefühl von Zugehörigkeit und Gemeinschaft</li>
+                    <li>Neue Facetten von dir, die im Spiegel der anderen sichtbar werden</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq__intro">
+                <h2>Häufige Fragen</h2>
+            </div>
+            <div class="faq__list">
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Brauche ich Vorerfahrung?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Nein. Du brauchst keine Erfahrung mit Primal Play, Körperarbeit oder ähnlichen Formaten. 
+                            Alles, was du brauchst, ist die Bereitschaft, dich auf etwas Neues einzulassen. 
+                            Wir begleiten dich durch den Abend und erklären alles Schritt für Schritt.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Ist das sexuell?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Primal Play ist ein vollständig bekleideter Raum und kein sexuelles Format. 
+                            Sinnlichkeit kann Teil der Erfahrung sein – genauso wie Wildheit, Stille, Spiel oder Trauer. 
+                            Klare Vereinbarungen sorgen dafür, dass die Grenzen aller gewahrt bleiben.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Was wenn ich mich unsicher fühle?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Ein Herzstück unserer Arbeit ist es, einen möglichst sicheren Raum zu schaffen. 
+                            Denn: Nur wenn wir uns sicher fühlen, beginnen wir zu spielen und uns zu zeigen.
+                        </p>
+                        <p>
+                            Es wird immer wieder Übungen geben, die dich dabei unterstützen, deine Grenzen 
+                            ganz körperlich zu spüren und zu achten. Alle Übungen und Plays sind optional – 
+                            du entscheidest frei, welchen Aspekten du folgst.
+                        </p>
+                        <p>
+                            Und: Du kannst jederzeit in eine bezeugende Rolle wechseln und erstmal einfach 
+                            mitbekommen, was in dir passiert, während du mit im Raum bist.
+                        </p>
+                        <p>
+                            Falls du vorab Fragen hast, schreib uns gerne an info@relationalspace.de – 
+                            oder sprich uns persönlich rund um die Events an.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Für wen ist Primal Play?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Egal welche sexuelle Orientierung oder Identität, oder welche körperlichen Merkmale 
+                            wie Alter oder Hautfarbe du hast: Du bist willkommen. Egal ob du single bist, 
+                            in einer monogamen Partnerschaft, oder anderen Konstellationen: Du bist willkommen.
+                        </p>
+                        <p>
+                            Bitte sei dir bewusst, dass Primal Play nicht als reine Partnerschaftserfahrung 
+                            konzipiert ist. Wir laden dazu ein, verschiedene Plays mit verschiedenen Menschen zu erleben.
+                        </p>
+                        <p>
+                            Natürlich gehen wir auf individuelle Wünsche ein – sprich uns am besten gleich zu 
+                            Beginn des Abends an, damit wir das in der Gruppe klar benennen können. Zum Beispiel, 
+                            wenn du Plays nur mit einer bestimmten Person machen möchtest.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Was ist, wenn ich niemanden kenne?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Viele kommen allein – und genau das ist Teil der Erfahrung. Der Abend ist so gestaltet, 
+                            dass du sanft in Kontakt kommst, erst mit dir selbst, dann mit anderen. 
+                            Du musst niemanden kennen, um dich willkommen zu fühlen.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Wie viele Menschen sind dabei?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Unsere Workshops sind bewusst klein gehalten – in der Regel zwischen 10 und 20 Teilnehmende. 
+                            So entsteht ein intimer Rahmen, in dem echte Begegnung möglich ist.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Woher kommt das Format?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Marina Kronkvist aus Finnland entwickelte ein Format mit dem Namen "Ritual Play". 
+                            Buster Rådvik & Rachel Rickards haben dieses Format unter dem Namen "Primal Play" 
+                            weiterentwickelt – damals unter dem Dach von Embodied Intimacy.
+                        </p>
+                        <p>
+                            Inzwischen gehen Buster und Rachel getrennte Wege. Wir haben 2025 Buster und Maras 
+                            Intimacy Training bei Path of Relating (pathofrelating.com) absolviert und bringen 
+                            diese Arbeit nun nach Köln.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq__item">
+                    <button class="faq__question">
+                        <span>Was soll ich mitbringen?</span>
+                        <span class="faq__icon">+</span>
+                    </button>
+                    <div class="faq__answer">
+                        <p>
+                            Bequeme Kleidung, in der du dich frei bewegen kannst. Wir werden zwischen verschiedenen 
+                            Bewegungs-Intensitäten wechseln, also ergibt Kleidung im Zwiebelprinzip Sinn. 
+                            Bring auch eine Trinkflasche mit. Bitte vermeide intensive Düfte.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="team__intro">
+                <h2>Über uns</h2>
+                <p>
+                    Wir sind Michelle und Manuel — ein Paar aus Köln, das Räume für Verbindung und 
+                    Selbsterfahrung schaffen möchte.
+                </p>
+                <p>
+                    2025 haben wir gemeinsam Buster Rådviks und Mara Kölpins Intimacy Training absolviert – 
+                    eine intensive, siebenmonatige Ausbildung in verkörperter Beziehungsarbeit. Dort haben wir 
+                    vertieft, was wir schon vorher zu erkunden begonnen hatten: Wie halten wir Räume, in denen 
+                    echte Begegnung möglich wird?
+                </p>
+            </div>
+            <div class="team__grid">
+                <div class="team__member">
+                    <div class="team__photo">
+                        <img src="michelle.jpg" alt="Michelle">
+                    </div>
+                    <h3>Michelle</h3>
+                    <p>
+                        Mein Herz schlägt für authentische Verbindung und die Weisheit des Körpers.
+                    </p>
+                    <div class="team__more">
+                        <button class="team__more-btn">
+                            Mehr erfahren <span class="icon">▼</span>
+                        </button>
+                        <div class="team__more-content">
+                            <p>
+                                Im Intimacy Training habe ich erfahren, wie viel kostbare Intimität in offen 
+                                geteilter Verletzlichkeit liegt. Ich habe erlebt, dass echtes Grenzen-Setzen oft erst möglich wird, wenn wir 
+                                uns mit unseren Schatten auseinandersetzen und im Körper zu fühlen beginnen, 
+                                dass wir Grenzen setzen dürfen. Und dass sich hinter der Angst vor den anderen 
+                                oft die Sehnsucht verbirgt, gesehen zu werden – wenn wir das zulassen, können 
+                                andere zur Ressource werden.
+                            </p>
+                            <p>
+                                Hauptberuflich arbeite ich als Sozialpädagogin mit Mädchen im Teenager-Alter. 
+                                In meiner Freizeit zieht es mich in die Natur – Wildkräuter, Waldrituale und 
+                                das Erforschen der Wildnis mit allen Sinnen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team__member">
+                    <div class="team__photo">
+                        <img src="manuel.jpg" alt="Manuel">
+                    </div>
+                    <h3>Manuel</h3>
+                    <p>
+                        Ich bin überzeugt: Wir können anders miteinander sein. Natürlicher, lebendiger, echter.
+                    </p>
+                    <div class="team__more">
+                        <button class="team__more-btn">
+                            Mehr erfahren <span class="icon">▼</span>
+                        </button>
+                        <div class="team__more-content">
+                            <p>
+                                Ob beim Tanzen, Yoga oder bei 
+                                der Zusammenarbeit in Projekten: Mich fasziniert, was möglich wird, wenn wir aus dem 
+                                ganzen Körper heraus handeln statt nur aus dem Kopf. Diese Körperintelligenz möchte 
+                                ich in meine Arbeit mit Gruppen einbringen.
+                            </p>
+                            <p>
+                                Im Training habe ich erlebt, welche Entspannung und Vertrautheit zwischen Menschen 
+                                entsteht, wenn Grenzen und Wünsche klar kommuniziert werden. Echte Nähe kann nur 
+                                entstehen, wenn wir unser „Nein" genauso ehren wie unser „Ja" – und beides klar 
+                                ausdrücken. Wenn wir uns hier treu bleiben, kann Magie entstehen.
+                            </p>
+                            <p>
+                                Hauptberuflich arbeite ich als Ingenieur an der europäischen Energiewende.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Section -->
+    <section class="events" id="events">
+        <div class="container">
+            <div class="events__intro">
+                <h2>Workshops 2026</h2>
+                <p>
+                    Wir planen 3–4 Primal Play Workshops in Köln für 2026, 
+                    voraussichtlich samstags, jeweils 4 Stunden.
+                </p>
+            </div>
+            <div class="events__card">
+                <h3>Primal Play Köln</h3>
+                <p class="events__date">Termine werden bald bekannt gegeben</p>
+                <p>
+                    Ein 4-stündiger Workshop zum Eintauchen in die Welt des Primal Play. 
+                    Mit wechselnden Gast-Facilitator:innen aus unserem Netzwerk.
+                </p>
+                <a href="#contact" class="btn">Auf die Kontaktliste</a>
+                <p class="events__note">
+                    Trag dich in unsere Kontaktliste ein, um als Erste:r von neuen Terminen zu erfahren.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>
+                Du hast Fragen oder möchtest auf dem Laufenden bleiben? Schreib uns gerne.
+            </p>
+            <a href="mailto:info@relationalspace.de" class="contact__email">info@relationalspace.de</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer__inner">
+            <span>© 2026 The Relational Space · Köln</span>
+            <span>
+                <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+        
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const menuClose = document.getElementById('menuClose');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        menuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+        
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq__question').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items
+                document.querySelectorAll('.faq__item').forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                // Toggle current item
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+        
+        // Team "Mehr erfahren" toggle
+        document.querySelectorAll('.team__more-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const moreSection = button.parentElement;
+                moreSection.classList.toggle('active');
+                
+                // Update button text
+                const isActive = moreSection.classList.contains('active');
+                button.innerHTML = isActive 
+                    ? 'Weniger anzeigen <span class="icon">▲</span>' 
+                    : 'Mehr erfahren <span class="icon">▼</span>';
+            });
+        });
+    </script>
+</body>
+</html>
