@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Relational Space · Cologne</title>
     <meta name="description" content="Primal Play workshops in Cologne. Spaces to arrive in your body – and in true connection.">
+    <link rel="icon" type="image/png" href="organic_circle_clean.png">
+    <link rel="apple-touch-icon" href="organic_circle_clean.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,13 +68,13 @@
         }
         
         h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             font-weight: 300;
             margin-bottom: var(--space-md);
         }
         
         h3 {
-            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-size: clamp(1.3rem, 3vw, 1.6rem);
             font-weight: 400;
             margin-bottom: var(--space-sm);
         }
@@ -399,7 +401,7 @@
         }
         
         .intro__text p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.8;
         }
         
@@ -440,7 +442,7 @@
         
         .primal-play__quote {
             font-family: var(--font-display);
-            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             font-style: italic;
             color: var(--color-text-inverse);
             margin: var(--space-lg) 0;
@@ -506,12 +508,13 @@
             position: relative;
             overflow: hidden;
             padding: 0;
-            background: var(--color-bg-dark);
+            background: var(--color-bg-warm);
         }
         
         .for-you__inner {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            min-height: 500px;
         }
         
         .for-you__image {
@@ -523,7 +526,9 @@
         .for-you__image img {
             display: block;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
         }
         
         .for-you__content {
@@ -539,7 +544,7 @@
         }
         
         .for-you__content > p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             margin-bottom: var(--space-md);
         }
         
@@ -552,7 +557,7 @@
             padding: var(--space-sm) 0;
             border-bottom: 1px solid var(--color-border);
             color: var(--color-text);
-            font-size: 1.05rem;
+            font-size: 1rem;
             display: flex;
             align-items: flex-start;
             gap: var(--space-sm);
@@ -565,13 +570,13 @@
         .for-you__list li::before {
             content: '◇';
             color: var(--color-accent);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-top: 0.2rem;
             flex-shrink: 0;
         }
         
         .expect__card p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         
         /* FAQ Section */
@@ -600,7 +605,7 @@
             border: none;
             padding: var(--space-md) 0;
             font-family: var(--font-display);
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 400;
             color: var(--color-text);
             text-align: left;
@@ -617,7 +622,7 @@
         }
         
         .faq__icon {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 300;
             transition: transform 0.3s ease;
             flex-shrink: 0;
@@ -655,7 +660,7 @@
         }
         
         .team__intro p {
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.8;
             margin-bottom: var(--space-sm);
         }
@@ -688,12 +693,11 @@
         }
         
         .team__member h3 {
-            font-size: 1.5rem;
             margin-bottom: var(--space-sm);
         }
         
         .team__member > p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             line-height: 1.7;
             max-width: 400px;
             margin: 0 auto var(--space-sm);
@@ -707,7 +711,7 @@
             background: none;
             border: none;
             color: var(--color-accent);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
@@ -737,7 +741,7 @@
         }
         
         .team__more-content p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.7;
             max-width: 400px;
             margin: var(--space-sm) auto;
@@ -774,7 +778,6 @@
         }
         
         .events__card h3 {
-            font-size: 1.8rem;
             margin-bottom: var(--space-xs);
         }
         
@@ -817,7 +820,7 @@
         
         .contact__email {
             font-family: var(--font-display);
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             color: var(--color-text-inverse);
             display: inline-block;
             margin-bottom: var(--space-md);
@@ -923,6 +926,12 @@
         }
         
         /* Responsive */
+        @media (max-width: 1100px) {
+            .for-you__inner {
+                min-height: 450px;
+            }
+        }
+        
         @media (max-width: 900px) {
             .intro__grid {
                 grid-template-columns: 1fr;
@@ -935,11 +944,16 @@
             
             .for-you__inner {
                 grid-template-columns: 1fr;
+                min-height: auto;
             }
             
             .for-you__image {
-                max-height: 350px;
+                height: 400px;
                 overflow: hidden;
+            }
+            
+            .for-you__image img {
+                object-position: center 20%;
             }
             
             .for-you__content {
@@ -975,16 +989,16 @@
             }
             
             .hero__tagline {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: 0 var(--space-sm);
             }
             
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             h2 {
-                font-size: 1.8rem;
+                font-size: 1.5rem;
             }
             
             .primal-play__content {
@@ -992,7 +1006,7 @@
             }
             
             .primal-play__quote {
-                font-size: 1.1rem;
+                font-size: 1rem;
                 padding: var(--space-md);
             }
             
@@ -1001,7 +1015,7 @@
             }
             
             .faq__question span:first-child {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
             
             .team__intro {
@@ -1115,7 +1129,7 @@
             <h1>The Relational Space</h1>
             <p class="hero__tagline">Spaces to arrive in your body – and in true connection.</p>
             <div class="hero__cta">
-                <a href="#primal-play" class="btn">Learn more</a>
+                <a href="#about" class="btn">Learn more</a>
             </div>
         </div>
         <div class="hero__credit">
@@ -1131,9 +1145,7 @@
                 <img src="connection.jpg" alt="People in playful, connected encounter">
                 <div class="photo-credit__text">
                     Photographed during the Intimacy Training 2025 by <a href="https://instagram.com/johannakaisjoki" target="_blank">Johanna Kaisjoki</a> | 
-                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>: 
-                    <a href="https://instagram.com/busterradvik" target="_blank">Buster Rådvik</a> & 
-                    <a href="https://instagram.com/maramehrunissa" target="_blank">Mara Kölpin</a>
+                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>
                 </div>
             </div>
             <div class="intro__text">
@@ -1227,9 +1239,7 @@
                 <img src="expect-bg.jpg" alt="People in intimate, playful connection">
                 <div class="photo-credit__text">
                     Photographed during the Intimacy Training 2025 by <a href="https://instagram.com/johannakaisjoki" target="_blank">Johanna Kaisjoki</a> | 
-                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>: 
-                    <a href="https://instagram.com/busterradvik" target="_blank">Buster Rådvik</a> & 
-                    <a href="https://instagram.com/maramehrunissa" target="_blank">Mara Kölpin</a>
+                    Courtesy of <a href="https://pathofrelating.com" target="_blank">Path of Relating</a>
                 </div>
             </div>
             <div class="for-you__content">
@@ -1301,7 +1311,7 @@
                             notice what happens inside you while being in the room.
                         </p>
                         <p>
-                            If you have questions beforehand, feel free to write us at info@relationalspace.de – 
+                            If you have questions beforehand, feel free to write us at <a href="mailto:info@relationalspace.de">info@relationalspace.de</a> – 
                             or speak to us in person around the events.
                         </p>
                     </div>
@@ -1592,8 +1602,8 @@
                 // Update button text
                 const isActive = moreSection.classList.contains('active');
                 button.innerHTML = isActive 
-                    ? 'Weniger anzeigen <span class="icon">▲</span>' 
-                    : 'Mehr erfahren <span class="icon">▼</span>';
+                    ? 'Show less <span class="icon">▲</span>' 
+                    : 'Learn more <span class="icon">▼</span>';
             });
         });
     </script>

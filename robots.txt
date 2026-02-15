@@ -1,0 +1,7 @@
+# robots.txt for The Relational Space
+# https://relationalspace.de
+
+User-agent: *
+Allow: /
+
+Sitemap: https://relationalspace.de/sitemap.xml

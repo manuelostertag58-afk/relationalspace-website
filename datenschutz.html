@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Datenschutz – The Relational Space</title>
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="organic_circle_clean.png">
+    <link rel="apple-touch-icon" href="organic_circle_clean.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Instrument+Sans:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --color-bg: #FAF9F7;
-            --color-bg-warm: #F5F1EB;
-            --color-text: #2D2A26;
-            --color-accent: #8B7355;
+            --color-bg: #f5f3ef;
+            --color-bg-warm: #ebe7e0;
+            --color-text: #2c2825;
+            --color-text-light: #5c5650;
+            --color-accent: #8b7355;
             --font-display: 'Cormorant Garamond', serif;
             --font-body: 'Instrument Sans', sans-serif;
+            --space-sm: 1rem;
             --space-md: 1.5rem;
             --space-lg: 3rem;
             --space-xl: 5rem;
@@ -34,7 +39,7 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 700px;
             margin: 0 auto;
             padding: var(--space-xl) var(--space-md);
         }
@@ -42,28 +47,47 @@
         h1 {
             font-family: var(--font-display);
             font-size: 2.5rem;
-            font-weight: 500;
+            font-weight: 400;
             margin-bottom: var(--space-lg);
+        }
+        
+        h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-top: var(--space-lg);
+            margin-bottom: var(--space-sm);
         }
         
         p {
-            margin-bottom: var(--space-md);
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-light);
         }
         
-        .notice {
-            background: var(--color-bg-warm);
-            padding: var(--space-md);
-            border-radius: 4px;
-            margin-bottom: var(--space-lg);
+        ul {
+            margin-bottom: var(--space-sm);
+            margin-left: var(--space-md);
+            color: var(--color-text-light);
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
         }
         
         a {
             color: var(--color-accent);
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
         }
         
         .back-link {
             display: inline-block;
             margin-top: var(--space-lg);
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--color-bg-warm);
         }
     </style>
 </head>
@@ -71,18 +95,88 @@
     <div class="container">
         <h1>Datenschutzerklärung</h1>
         
-        <div class="notice">
-            <p><strong>Diese Seite befindet sich im Aufbau.</strong></p>
-            <p>Die vollständige Datenschutzerklärung wird in Kürze ergänzt.</p>
-        </div>
+        <h2>1. Verantwortlicher</h2>
+        <p>
+            Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br><br>
+            The Relational Space<br>
+            Manuel Ostertag<br>
+            Grevenbroicher Str. 32<br>
+            50829 Köln
+            E-Mail: <a href="mailto:info@relationalspace.de">info@relationalspace.de</a>
+        </p>
         
-        <p><strong>Verantwortlich für die Datenverarbeitung:</strong><br>
-        The Relational Space<br>
-        E-Mail: info@relationalspace.de</p>
+        <h2>2. Hosting</h2>
+        <p>
+            Diese Website wird bei GitHub Pages gehostet. Anbieter ist die GitHub Inc., 88 Colin P Kelly Jr St, 
+            San Francisco, CA 94107, USA. Beim Besuch unserer Website werden automatisch Informationen in 
+            Server-Log-Dateien gespeichert, die Ihr Browser übermittelt. Dies sind:
+        </p>
+        <ul>
+            <li>Browsertyp und Browserversion</li>
+            <li>Verwendetes Betriebssystem</li>
+            <li>Referrer URL</li>
+            <li>Hostname des zugreifenden Rechners</li>
+            <li>Uhrzeit der Serveranfrage</li>
+            <li>IP-Adresse</li>
+        </ul>
+        <p>
+            Diese Daten werden nicht mit anderen Datenquellen zusammengeführt. Die Speicherung erfolgt auf 
+            Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an 
+            der technisch fehlerfreien Darstellung und Optimierung seiner Website.
+        </p>
+        <p>
+            Weitere Informationen finden Sie in der Datenschutzerklärung von GitHub: 
+            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a>
+        </p>
         
-        <p><strong>Aktueller Stand:</strong><br>
-        Diese Website verwendet keine Cookies, keine Analyse-Tools und gibt keine Daten an Dritte weiter. 
-        Bei Kontaktaufnahme per E-Mail werden Ihre Daten ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+        <h2>3. Allgemeine Hinweise</h2>
+        <p>
+            Diese Website verwendet keine Cookies, keine Tracking-Tools und keine Analyse-Software. 
+            Es werden keine Daten an Dritte weitergegeben, außer im Rahmen des technisch notwendigen Hostings.
+        </p>
+        
+        <h2>4. Kontaktaufnahme per E-Mail</h2>
+        <p>
+            Wenn Sie uns per E-Mail kontaktieren, werden Ihre Angaben einschließlich der von Ihnen angegebenen 
+            Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. 
+            Diese Daten geben wir nicht ohne Ihre Einwilligung weiter.
+        </p>
+        <p>
+            Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre 
+            Anfrage mit der Erfüllung eines Vertrags zusammenhängt oder zur Durchführung vorvertraglicher 
+            Maßnahmen erforderlich ist. In allen übrigen Fällen beruht die Verarbeitung auf unserem berechtigten 
+            Interesse an der effektiven Bearbeitung der an uns gerichteten Anfragen (Art. 6 Abs. 1 lit. f DSGVO).
+        </p>
+        
+        <h2>5. Externe Links</h2>
+        <p>
+            Diese Website enthält Links zu externen Websites (z.B. Instagram, Path of Relating). 
+            Wenn Sie auf diese Links klicken, verlassen Sie unsere Website. Für die Datenschutzpraktiken 
+            dieser externen Websites sind wir nicht verantwortlich.
+        </p>
+        
+        <h2>6. Ihre Rechte</h2>
+        <p>Sie haben jederzeit das Recht:</p>
+        <ul>
+            <li>Auskunft über Ihre bei uns gespeicherten Daten zu erhalten (Art. 15 DSGVO)</li>
+            <li>Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO)</li>
+            <li>Löschung Ihrer Daten zu verlangen (Art. 17 DSGVO)</li>
+            <li>Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO)</li>
+            <li>Der Verarbeitung zu widersprechen (Art. 21 DSGVO)</li>
+            <li>Datenübertragbarkeit zu verlangen (Art. 20 DSGVO)</li>
+        </ul>
+        <p>
+            Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt oder 
+            Ihre datenschutzrechtlichen Ansprüche in einer anderen Weise verletzt worden sind, können Sie 
+            sich bei der zuständigen Aufsichtsbehörde beschweren.
+        </p>
+        
+        <h2>7. Aktualität</h2>
+        <p>
+            Diese Datenschutzerklärung ist aktuell gültig und hat den Stand Februar 2026. 
+            Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher Vorgaben 
+            kann eine Anpassung dieser Datenschutzerklärung erforderlich werden.
+        </p>
         
         <a href="index.html" class="back-link">← Zurück zur Startseite</a>
     </div>
