@@ -769,36 +769,73 @@
             margin: 0 auto var(--space-lg);
         }
         
-        .events__card {
-            max-width: 700px;
+        .events__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-md);
+            max-width: 900px;
             margin: 0 auto;
-            padding: var(--space-lg);
-            background: var(--color-bg-warm);
-            text-align: center;
         }
         
-        .events__card h3 {
+        .events__card {
+            padding: var(--space-md);
+            background: var(--color-bg-warm);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .events__card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        
+        .events__card-date {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--color-text);
             margin-bottom: var(--space-xs);
         }
         
-        .events__date {
-            font-size: 0.9rem;
+        .events__card-day {
+            font-size: 0.85rem;
             color: var(--color-accent);
-            letter-spacing: 0.1em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .events__card-time {
+            font-size: 0.9rem;
+            color: var(--color-text-light);
             margin-bottom: var(--space-md);
         }
         
-        .events__card p {
-            margin-bottom: var(--space-md);
+        .events__card .btn {
+            margin-top: auto;
+        }
+        
+        .events__card .btn--disabled {
+            background: var(--color-border);
+            color: var(--color-text-light);
+            cursor: default;
+            pointer-events: none;
         }
         
         .events__note {
-            font-style: italic;
+            text-align: center;
+            max-width: 600px;
+            margin: var(--space-lg) auto 0;
+            font-size: 0.9rem;
             color: var(--color-text-light);
-            padding: var(--space-md);
-            background: var(--color-bg);
-            margin-top: var(--space-md);
+        }
+        
+        @media (max-width: 600px) {
+            .events__grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         /* Contact Section */
@@ -1487,21 +1524,34 @@
             <div class="events__intro">
                 <h2>Workshops 2026</h2>
                 <p>
-                    We're planning 3–4 Primal Play workshops in Cologne for 2026, 
-                    likely on Saturdays, 4 hours each.
+                    Primal Play evenings in Cologne – each Sunday from 4 to 8 PM.
                 </p>
             </div>
-            <div class="events__card">
-                <h3>Primal Play Cologne</h3>
-                <p class="events__date">Dates to be announced soon</p>
-                <p>
-                    A 4-hour workshop to dive into the world of Primal Play. 
-                    With rotating guest facilitators from our network.
-                </p>
-                <a href="#contact" class="btn">Join the mailing list</a>
-                <p class="events__note">
-                    Sign up for our contact list to be the first to hear about new dates.
-                </p>
+            <div class="events__grid">
+                <div class="events__card">
+                    <div class="events__card-date">April 26</div>
+                    <div class="events__card-day">Sunday</div>
+                    <div class="events__card-time">4:00 – 8:00 PM</div>
+                    <a href="#" class="btn btn--disabled">Tickets available soon</a>
+                </div>
+                <div class="events__card">
+                    <div class="events__card-date">June 14</div>
+                    <div class="events__card-day">Sunday</div>
+                    <div class="events__card-time">4:00 – 8:00 PM</div>
+                    <a href="#" class="btn btn--disabled">Tickets available soon</a>
+                </div>
+                <div class="events__card">
+                    <div class="events__card-date">September 20</div>
+                    <div class="events__card-day">Sunday</div>
+                    <div class="events__card-time">4:00 – 8:00 PM</div>
+                    <a href="#" class="btn btn--disabled">Tickets available soon</a>
+                </div>
+                <div class="events__card">
+                    <div class="events__card-date">November 22</div>
+                    <div class="events__card-day">Sunday</div>
+                    <div class="events__card-time">4:00 – 8:00 PM</div>
+                    <a href="#" class="btn btn--disabled">Tickets available soon</a>
+                </div>
             </div>
         </div>
     </section>
