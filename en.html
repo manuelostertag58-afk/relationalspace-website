@@ -832,6 +832,45 @@
             color: var(--color-text-light);
         }
         
+        .events__location {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            max-width: 900px;
+            margin: var(--space-lg) auto 0;
+            padding: var(--space-lg);
+            background: var(--color-bg-warm);
+        }
+        
+        .events__location h3 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .events__location-info p {
+            font-size: 0.95rem;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .events__location-address {
+            margin-top: var(--space-md);
+        }
+        
+        .events__location-address a {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+        
+        .events__location-map {
+            display: flex;
+            align-items: center;
+        }
+        
+        @media (max-width: 700px) {
+            .events__location {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         @media (max-width: 600px) {
             .events__grid {
                 grid-template-columns: 1fr;
@@ -1551,6 +1590,34 @@
                     <div class="events__card-day">Sunday</div>
                     <div class="events__card-time">4:00 – 8:00 PM</div>
                     <a href="#" class="btn btn--disabled">Tickets available soon</a>
+                </div>
+            </div>
+            <div class="events__location">
+                <div class="events__location-info">
+                    <h3>Venue</h3>
+                    <p>
+                        The workshops take place in the light-filled and cozy spaces 
+                        of Contratiempo FlamencoZentrum and Goshin Karate Köln.
+                    </p>
+					<p>
+                        You find the entrance in the backyard.
+                    </p>
+                    <p class="events__location-address">
+                        <a href="https://maps.google.com/?q=Dürener+Str.+165,+50931+Köln" target="_blank">
+                            Dürener Str. 165, 50931 Cologne
+                        </a>
+                    </p>
+                </div>
+                <div class="events__location-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2514.234!2d6.9097!3d50.9347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bf25a5c6f9a5e5%3A0x9f8c8f8f8f8f8f8f!2sD%C3%BCrener%20Str.%20165%2C%2050931%20K%C3%B6ln!5e0!3m2!1sde!2sde!4v1234567890"
+                        width="100%" 
+                        height="250" 
+                        style="border:0; border-radius: 4px;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
         </div>
